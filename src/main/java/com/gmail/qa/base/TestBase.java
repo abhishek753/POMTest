@@ -1,9 +1,11 @@
 package com.gmail.qa.base;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+//import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -12,15 +14,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.gmail.qa.util.TestUtil;
 
+//import com.gmail.qa.util.TestUtil;
+
 public class TestBase {
 	public static WebDriver driver;
 	public static Properties prop;
+	public final String dbPropath = "C:" + File.separator  + "/Users/abhishek/eclipse-workspace/POMTest/src/main/java/com/gmail/qa/config/config.properties";
+	
 	
 	public TestBase() {
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(System.getProperty("user.dir"+"\\com\\gmail\\qa\\config\\config.properties"));
-			prop.load(ip);
+			prop.load(new FileInputStream(dbPropath));
+			//FileInputStream ip = new FileInputStream(System.getProperty(("user.dir")+"/POMTest/src/main/java/com/gmail/qa/config/config.properties"));
+			//prop.load(ip);
 		}catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}catch (IOException e) {
@@ -32,11 +39,13 @@ public class TestBase {
 		String browserName = prop.getProperty("browser");
 		
 		if(browserName.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver","D:\\Abhishek Work\\Software\\Driver\\chromedriver.exe");
+			//System.out.println(System.getProperty("user.dir"));
+			
+			System.setProperty("webdriver.chrome.driver","C:/Users/abhishek/eclipse-workspace/POMTest/Driver/chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		else if(browserName.equals("FF")) {
-			System.setProperty("webdriver.gecko.driver","D:\\Abhishek Work\\Software\\Driver\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver","geckodriver.exe");
 			driver = new FirefoxDriver();
 			
 		}

@@ -20,6 +20,7 @@ public class LoginPage extends TestBase{
 	WebElement password;
 	
 	@FindBy(id="passwordNext")
+	//@FindBy(xpath="//div[@role='button'")
 	WebElement nextBtn1;
 	
 	@FindBy(xpath="//span[class(text(),'Create account')]")
