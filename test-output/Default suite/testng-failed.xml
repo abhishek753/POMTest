@@ -5,6 +5,8 @@
     <classes>
       <class name="com.gmail.qa.testcases.LoginPageTest">
         <methods>
+          <include name="googleLogoImageTest"/>
+          <include name="loginPageTitleTest"/>
           <include name="loginTest"/>
           <include name="tearDown"/>
           <include name="setUp"/>
