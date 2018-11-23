@@ -16,11 +16,11 @@ public class LoginPage extends TestBase{
 	WebElement nextBtn;
 	
 	
-	@FindBy(xpath="//input[@name='password']")
+	@FindBy(xpath="$x("//input[@name='password'][@type='password']")")
 	WebElement password;
 	
 //	@FindBy(id="passwordNext")
-	@FindBy(xpath="//span[@name='Next']")
+	@FindBy(xpath="$x(//span[@name='Next']")
 	WebElement nextBtn1;
 	
 	@FindBy(xpath="//span[class(text(),'Create account')]")
